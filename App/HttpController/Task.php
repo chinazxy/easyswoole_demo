@@ -29,6 +29,7 @@ class Task extends Controller
 //        });
 //        var_dump($result);
         $result = TaskManager::async(new TaskTest());
+        var_dump($result);
         $result = TaskManager::async(QuickTaskTest::class);
         var_dump($result);
 //        $result = TaskManager::sync(function (){
