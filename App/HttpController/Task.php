@@ -24,19 +24,21 @@ class Task extends Controller
     function index()
     {
         $this->response()->write("task");
-//        $result = TaskManager::async(function (){
-//            echo "执行task异步任务(回调函数)\n";
-//        });
-//        var_dump($result);
+        $result = TaskManager::async(function (){
+            echo "执行task异步任务(回调函数)\n";
+        });
+        var_dump($result);
         $result = TaskManager::async(new TaskTest());
+        var_dump($result);
+
         $result = TaskManager::async(QuickTaskTest::class);
         var_dump($result);
-//        $result = TaskManager::sync(function (){
-//            echo "执行task同步任务(回调函数)\n";
-//        });
-//        var_dump($result);
-//        $result = TaskManager::sync(new TaskTest());
-//        var_dump($result);
+        $result = TaskManager::sync(function (){
+            echo "执行task同步任务(回调函数)\n";
+        });
+        var_dump($result);
+        $result = TaskManager::sync(new TaskTest());
+        var_dump($result);
 
 
         // TODO: Implement index() method.
